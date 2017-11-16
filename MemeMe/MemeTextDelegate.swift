@@ -1,5 +1,5 @@
 //
-//  MemeDelegate.swift
+//  MemeTextDelegate.swift
 //  MemeMe
 //
 //  Created by Zachary Rose on 11/16/17.
@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class MemeDelegate: NSObject, UIImagePickerControllerDelegate {
-    
+class MemeTextDelegate: NSObject, UITextFieldDelegate {
     
     
 }

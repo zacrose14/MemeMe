@@ -18,18 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkF-On-eet">
-                                <rect key="frame" x="16" y="89" width="343" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-aD-2KG">
-                                <rect key="frame" x="16" y="577.5" width="343" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eki-bw-AxW">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
@@ -52,41 +40,59 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="F7D-yA-ECV">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="HBu-Aa-qhb"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="dTn-Nc-y5c"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="HBu-Aa-qhb">
+                                            <connections>
+                                                <action selector="shareButtonTapped:" destination="BYZ-38-t0r" id="3nE-18-SRh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="dTn-Nc-y5c">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="BYZ-38-t0r" id="W2z-YV-nj1"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PAR-2i-PAd">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-gy-FPS">
+                                <rect key="frame" x="16" y="89" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBJ-OR-b0b">
+                                <rect key="frame" x="16" y="561" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dkF-On-eet" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3pc-s1-pCK"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5h5-Ax-O8i"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="687-Af-zBZ"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BUY-Fu-Pc7"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ELt-Hp-iTe"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ezt-MP-Tcj"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OwY-11-9jv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dkF-On-eet" secondAttribute="trailing" constant="16" id="R7e-mu-vGD"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rfv-Y0-FEG"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="top" secondItem="DXm-yc-UnA" secondAttribute="bottom" id="TPN-DB-jtq"/>
-                            <constraint firstItem="Eki-bw-AxW" firstAttribute="top" secondItem="Zqb-aD-2KG" secondAttribute="bottom" constant="25" id="UIF-uO-QKh"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="top" secondItem="PAR-2i-PAd" secondAttribute="bottom" id="V5L-qv-zb1"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bCG-dA-Ek7"/>
-                            <constraint firstItem="Zqb-aD-2KG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eaE-D5-hOg"/>
-                            <constraint firstItem="dkF-On-eet" firstAttribute="top" secondItem="DXm-yc-UnA" secondAttribute="bottom" constant="25" id="mzZ-jH-oqo"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qG8-mH-WO4"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vNo-Hh-N9u"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zqb-aD-2KG" secondAttribute="trailing" constant="16" id="wlP-Fr-xyy"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ypC-vx-fBU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="iBJ-OR-b0b" id="cff-wG-XjD"/>
                         <outlet property="imagePickerView" destination="PAR-2i-PAd" id="M2O-gh-7T5"/>
+                        <outlet property="topTextField" destination="Nho-gy-FPS" id="lbB-6s-K0G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
