@@ -19,17 +19,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
+    func viewWillAppear() {
+        //cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
+    
     // Action from button
     @IBAction func pickImage(_ sender: Any) {
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     
     }
+    
+    // Camera button to take picture
+    @IBAction func cameraButton(_ sender: Any) {
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
     
     // Function to pick image and load to screen.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
