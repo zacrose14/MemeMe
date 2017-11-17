@@ -12,7 +12,7 @@
 		113C2DDA1FBE0284009477A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113C2DD81FBE0284009477A3 /* Main.storyboard */; };
 		113C2DDC1FBE0284009477A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 113C2DDB1FBE0284009477A3 /* Assets.xcassets */; };
 		113C2DDF1FBE0284009477A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 113C2DDD1FBE0284009477A3 /* LaunchScreen.storyboard */; };
-		113C2DE71FBE0EC9009477A3 /* MemeTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113C2DE61FBE0EC9009477A3 /* MemeTextDelegate.swift */; };
+		1148410F1FBE4C350026AF65 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148410E1FBE4C350026AF65 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		113C2DDB1FBE0284009477A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		113C2DDE1FBE0284009477A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		113C2DE01FBE0284009477A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		113C2DE61FBE0EC9009477A3 /* MemeTextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTextDelegate.swift; sourceTree = "<group>"; };
+		1148410E1FBE4C350026AF65 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			children = (
 				113C2DD41FBE0284009477A3 /* AppDelegate.swift */,
 				113C2DD61FBE0284009477A3 /* ViewController.swift */,
-				113C2DE61FBE0EC9009477A3 /* MemeTextDelegate.swift */,
+				1148410E1FBE4C350026AF65 /* Meme.swift */,
 				113C2DD81FBE0284009477A3 /* Main.storyboard */,
 				113C2DDB1FBE0284009477A3 /* Assets.xcassets */,
 				113C2DDD1FBE0284009477A3 /* LaunchScreen.storyboard */,
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				113C2DE71FBE0EC9009477A3 /* MemeTextDelegate.swift in Sources */,
+				1148410F1FBE4C350026AF65 /* Meme.swift in Sources */,
 				113C2DD71FBE0284009477A3 /* ViewController.swift in Sources */,
 				113C2DD51FBE0284009477A3 /* AppDelegate.swift in Sources */,
 			);
