@@ -42,7 +42,7 @@
                                     <navigationItem id="F7D-yA-ECV">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="HBu-Aa-qhb">
                                             <connections>
-                                                <action selector="shareButtonTapped:" destination="BYZ-38-t0r" id="3nE-18-SRh"/>
+                                                <action selector="shareButtonTapped:" destination="BYZ-38-t0r" id="htM-G4-8T7"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="dTn-Nc-y5c">
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-gy-FPS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-gy-FPS">
                                 <rect key="frame" x="16" y="89" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="yQ7-xI-M9f"/>
@@ -107,7 +107,9 @@
                         <outlet property="bottomTextField" destination="iBJ-OR-b0b" id="cff-wG-XjD"/>
                         <outlet property="cameraButton" destination="0r8-Ec-A4a" id="nsq-X0-q8n"/>
                         <outlet property="imagePickerView" destination="PAR-2i-PAd" id="M2O-gh-7T5"/>
+                        <outlet property="navBar" destination="DXm-yc-UnA" id="w7H-fE-Agz"/>
                         <outlet property="shareButton" destination="HBu-Aa-qhb" id="FGX-gT-Rns"/>
+                        <outlet property="toolBar" destination="Eki-bw-AxW" id="vv8-zy-RUf"/>
                         <outlet property="topTextField" destination="Nho-gy-FPS" id="lbB-6s-K0G"/>
                     </connections>
                 </viewController>

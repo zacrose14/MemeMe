@@ -18,6 +18,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var albumButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     // MARK: Variables
     var info: UIImage!
@@ -67,7 +69,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memeTextAttributes:[String:Any] = [
             NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue : UIColor.white ,
-            NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 35)!,
             NSAttributedStringKey.strokeWidth.rawValue : -3.0,
             NSAttributedStringKey.paragraphStyle.rawValue : memeTextCenter
         ]
@@ -88,11 +90,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         
+        navBar.isHidden = true
+        toolBar.isHidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        
+        navBar.isHidden = false
+        toolBar.isHidden = false
         
         return memedImage
     }
@@ -104,6 +112,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bottomTextField: bottomTextField.text,
             originalImage: imagePickerView.image,
             memedImage: memedImage)
+        
+        print("meme saved")
     }
     
     // MARK: Keyboard custom functions
@@ -180,12 +190,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // Share button action
-    @IBAction func shareButtonTapped(_ sender: Any) {
+    @IBAction func shareButtonTapped(_ sender: UIBarButtonItem) {
         
         memedImage = generateMemedImage()
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
+        
+        activityViewController.popoverPresentationController?.barButtonItem = sender
+        
+        activityViewController.completionWithItemsHandler = {
+            (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) -> Void in
+            
+            if completed {
+                self.saveMeme()
+            }
+        }
     }
     
     // Cancel button action
