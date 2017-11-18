@@ -57,16 +57,20 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-gy-FPS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nho-gy-FPS">
                                 <rect key="frame" x="16" y="89" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yQ7-xI-M9f"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="bottomTextField" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBJ-OR-b0b">
-                                <rect key="frame" x="16" y="561" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="bottomTextField" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBJ-OR-b0b">
+                                <rect key="frame" x="16" y="568" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uww-VF-KcZ"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -74,16 +78,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iBJ-OR-b0b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="09b-MA-Obi"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5h5-Ax-O8i"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="687-Af-zBZ"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BUY-Fu-Pc7"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ELt-Hp-iTe"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ezt-MP-Tcj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nho-gy-FPS" secondAttribute="trailing" constant="16" id="K3H-5k-CW1"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OwY-11-9jv"/>
+                            <constraint firstItem="Nho-gy-FPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="RfM-bM-Tlw"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rfv-Y0-FEG"/>
+                            <constraint firstItem="iBJ-OR-b0b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rm2-mh-l3s"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="top" secondItem="DXm-yc-UnA" secondAttribute="bottom" id="TPN-DB-jtq"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="top" secondItem="PAR-2i-PAd" secondAttribute="bottom" id="V5L-qv-zb1"/>
+                            <constraint firstItem="Nho-gy-FPS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VCi-Qv-BjH"/>
+                            <constraint firstItem="Eki-bw-AxW" firstAttribute="top" secondItem="iBJ-OR-b0b" secondAttribute="bottom" constant="25" id="WCO-A3-Brn"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bCG-dA-Ek7"/>
+                            <constraint firstItem="Nho-gy-FPS" firstAttribute="top" secondItem="DXm-yc-UnA" secondAttribute="bottom" constant="25" id="i52-XC-35g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iBJ-OR-b0b" secondAttribute="trailing" constant="16" id="oEx-Q9-j6y"/>
                             <constraint firstItem="PAR-2i-PAd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qG8-mH-WO4"/>
                             <constraint firstItem="Eki-bw-AxW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vNo-Hh-N9u"/>
                             <constraint firstItem="DXm-yc-UnA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ypC-vx-fBU"/>
@@ -101,6 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
     </scenes>
 </document>
