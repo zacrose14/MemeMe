@@ -76,6 +76,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.adjustsFontSizeToFitWidth = true
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentText = textField.text! as NSString
+        let capitalizedText = currentText.replacingCharacters(in: range, with: string.uppercased())
+        
+        textField.text = capitalizedText
+        
+        return false
+    }
+    
     func generateMemedImage() -> UIImage {
         
         // Render view to an image
@@ -96,32 +106,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             memedImage: memedImage)
     }
     
-    func dismissKeyboard(_ textField: UITextField) {
-        
-        // dismiss the keyboard
-        textField.endEditing(true)
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        dismissKeyboard(textField)
-        return true
-    }
-    
-    // MARK: Keyboard hide/show functions
+    // MARK: Keyboard custom functions
     @objc func keyboardWillShow(_ notification:Notification) {
         
         // Only move keyboard up if typing in bottom text field
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            let keyboardSize = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+            self.view.frame.origin.y -= (keyboardSize?.cgRectValue.height)!
         }
     }
    
     @objc func keyboardWillHide(_ notification:Notification) {
         
         // Again, only run if using bottom text field
-        if(bottomTextField.isFirstResponder==true) {
+        if(bottomTextField.isFirstResponder) {
             self.view.frame.origin.y = 0
         }
     }
@@ -139,7 +137,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func subscribeToKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     // Unsubscribe from Keyboard Notifications
@@ -147,6 +145,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func dismissKeyboard(_ textField: UITextField) {
+        
+        // dismiss the keyboard
+        textField.endEditing(true)
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        dismissKeyboard(textField)
+        return true
     }
     
     // MARK: Buttons from Storyboard
