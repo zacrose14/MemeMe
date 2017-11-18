@@ -197,8 +197,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
         
-        activityViewController.popoverPresentationController?.barButtonItem = sender
-        
         activityViewController.completionWithItemsHandler = {
             (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) -> Void in
             
