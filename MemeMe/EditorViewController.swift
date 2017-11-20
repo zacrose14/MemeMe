@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EditorViewController.swift
 //  MemeMe
 //
 //  Created by Zachary Rose on 11/16/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     // MARK: Outlets
@@ -155,6 +155,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    // Remove keyboard when user taps outside of text box.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     func dismissKeyboard(_ textField: UITextField) {
