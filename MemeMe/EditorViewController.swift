@@ -113,7 +113,8 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
             originalImage: imagePickerView.image,
             memedImage: memedImage)
         
-        print("meme saved")
+        // Save Meme to Array
+        MemeData.allMemes.append(meme)
     }
     
     // MARK: Keyboard custom functions
@@ -175,22 +176,29 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         return true
     }
     
-    // MARK: Buttons from Storyboard
-    // Pick Image button
-    @IBAction func pickImage(_ sender: Any) {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-    }
     
-    // Camera button to take picture
-    @IBAction func cameraButton(_ sender: Any) {
-        
+    // Single Function to handle both image picker functions
+    @IBAction func pickMemeImage(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        
+        var sourceType: UIImagePickerControllerSourceType!
+        
+        switch sender {
+            
+        case albumButton:
+            sourceType = .photoLibrary
+            
+        case cameraButton:
+            sourceType = .camera
+            
+        default:
+            print("None")
+            return
+        }
+        
+        imagePicker.sourceType = sourceType
+        
         present(imagePicker, animated: true, completion: nil)
     }
     
