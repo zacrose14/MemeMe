@@ -228,11 +228,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // Cancel button action
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        /*topTextField.text = placeholderTop
-        bottomTextField.text = placeholderBottom
-        imagePickerView.image = nil
-        shareButton.isEnabled = false*/
-        
+    
         if cameFromDetail == true {
             dismiss(animated: true, completion: nil)
         } else {

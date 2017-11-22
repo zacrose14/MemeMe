@@ -82,6 +82,10 @@ class TableViewController: UITableViewController {
     
     func generateLabelText(_ topText: String, bottomText: String) -> String {
         
+        /* With help from
+         https://gist.github.com/budidino/8585eecd55fd4284afaaef762450f98e
+         On how to trunicate strings in Swift 3.0.
+        */
         let ellipsis = "..."
         
         let maxCharactersAvail = 20
