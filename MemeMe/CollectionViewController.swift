@@ -12,8 +12,21 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
 
     let reusableCollectionCellIdentifier = "reusableMemeCollectionCell"
     
+    var executeDetailSegue = false
+    var executeEditorSegue = false
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Code to set up View Flow
+        let space:CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reusableCollectionCellIdentifier)
@@ -22,12 +35,11 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
+ 
         // Reload Collection each time view Appears
         collectionView!.reloadData()
     }
-
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -43,41 +55,55 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCollectionCellIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        
+        let cellImageView = cell.viewWithTag(0) as! UIImageView
+        
+        cellImageView.image = MemeData.allMemes[indexPath.row].memedImage
+        
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    @IBAction func unwindFromEditor(_ segue: UIStoryboardSegue) {
+        
+        executeEditorSegue = false
+        executeDetailSegue = false
     }
-    */
+    
+    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
+        switch action {
+        case #selector(CollectionViewController.unwindFromEditor(_:)):
+            let isUnwindResponder = executeEditorSegue || executeDetailSegue
+            
+            return isUnwindResponder
+            
+        default:
+            return false
+        }
+    }
+    // Function to handle Segue to Editor/Detail VCs
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueID = segue.identifier else {
+            return
+        }
+        
+        switch segueID {
+            
+        case "collectionViewToDetail":
+            let sentCell = sender as! UICollectionViewCell
+            let sentCellIndexPath = collectionView!.indexPath(for: sentCell)!
+            let selectedMeme = sentCellIndexPath.row
+            
+            let controller = segue.destination as! DetailViewController
+            controller.selectedMeme = MemeData.allMemes[selectedMeme]
+            
+            executeDetailSegue = true
+        
+        case "collectionViewToEditor":
+            executeEditorSegue = true
+            
+        default:
+            print("none")
+        }
+    }
 
 }

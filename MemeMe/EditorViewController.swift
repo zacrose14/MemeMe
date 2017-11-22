@@ -26,6 +26,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     var memedImage: UIImage!
     var placeholderTop = "TOP"
     var placeholderBottom = "BOTTOM"
+    var cameFromDetail = false
     
     //MARK: Set VC Overrides
     override func viewDidLoad() {
@@ -40,6 +41,9 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         topTextField.text = placeholderTop
         bottomTextField.text = placeholderBottom
         
+        if let anImage = info {
+            imagePickerView.image = anImage
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -208,23 +212,33 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         memedImage = generateMemedImage()
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        present(activityViewController, animated: true, completion: nil)
         
         activityViewController.completionWithItemsHandler = {
             (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) -> Void in
             
             if completed {
                 self.saveMeme()
+                
+                self.performSegue(withIdentifier: "unwindFromEditor", sender: self)
             }
         }
+        
+        present(activityViewController, animated: true, completion: nil)
     }
     
     // Cancel button action
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        topTextField.text = placeholderTop
+        /*topTextField.text = placeholderTop
         bottomTextField.text = placeholderBottom
         imagePickerView.image = nil
-        shareButton.isEnabled = false
+        shareButton.isEnabled = false*/
+        
+        if cameFromDetail == true {
+            dismiss(animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "unwindFromEditor", sender: self)
+            print("test")
+        }
     }
     
     // Function to pick image and load to screen.

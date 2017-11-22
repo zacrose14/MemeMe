@@ -98,6 +98,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flowLayout" destination="ffv-rg-cnx" id="iWN-Ug-Myn"/>
                         <segue destination="mbi-o7-Q6S" kind="show" identifier="collectionViewToDetail" id="9Re-pr-fze"/>
                     </connections>
                 </collectionViewController>
@@ -174,13 +175,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2i-Vf-hvA">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2i-Vf-hvA">
                                             <rect key="frame" x="0.0" y="3" width="160.5" height="90.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="l2i-Vf-hvA" secondAttribute="height" multiplier="16:9" id="J70-w8-VDw"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP AND BOTTOM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1X-pP-hWN">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP AND BOTTOM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1X-pP-hWN">
                                             <rect key="frame" x="160.5" y="0.0" width="214.5" height="90.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -207,7 +208,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="Gap-xk-5As">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jzc-UH-0Nn">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="tableViewSegueToEditor" id="VCz-0F-ggs"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="tableViewToEditor" id="VCz-0F-ggs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -320,9 +321,11 @@
                         <outlet property="shareButton" destination="HBu-Aa-qhb" id="FGX-gT-Rns"/>
                         <outlet property="toolBar" destination="Eki-bw-AxW" id="vv8-zy-RUf"/>
                         <outlet property="topTextField" destination="Nho-gy-FPS" id="lbB-6s-K0G"/>
+                        <segue destination="zct-by-z0w" kind="unwind" identifier="unwindFromEditor" unwindAction="unwindFromEditor:" id="YxP-ul-VRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="zct-by-z0w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1242" y="-501"/>
         </scene>
