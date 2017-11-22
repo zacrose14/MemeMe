@@ -69,7 +69,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="145" height="97"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BvK-73-eig">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BvK-73-eig">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="BvK-73-eig" secondAttribute="height" multiplier="16:9" id="H3S-M6-tiL"/>
@@ -83,6 +83,9 @@
                                     <constraint firstItem="BvK-73-eig" firstAttribute="leading" secondItem="uRq-dp-hGL" secondAttribute="trailing" constant="-145" id="nxd-Py-iiA"/>
                                 </constraints>
                                 <size key="customSize" width="145" height="97"/>
+                                <connections>
+                                    <segue destination="mbi-o7-Q6S" kind="show" identifier="collectionViewToDetail" id="tEu-0U-BsR"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -99,7 +102,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="ffv-rg-cnx" id="iWN-Ug-Myn"/>
-                        <segue destination="mbi-o7-Q6S" kind="show" identifier="collectionViewToDetail" id="9Re-pr-fze"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P61-Wb-JEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,6 +200,9 @@
                                         <constraint firstItem="k1X-pP-hWN" firstAttribute="height" secondItem="FzP-3C-85v" secondAttribute="height" id="hbc-FO-h7G"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mbi-o7-Q6S" kind="show" identifier="tableViewToDetail" id="QDH-a7-rSM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -212,9 +217,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="mbi-o7-Q6S" kind="show" identifier="tableViewToDetail" id="C62-Rd-FgX"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0q-vH-ByV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -332,6 +334,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VCz-0F-ggs"/>
-        <segue reference="C62-Rd-FgX"/>
+        <segue reference="tEu-0U-BsR"/>
     </inferredMetricsTieBreakers>
 </document>

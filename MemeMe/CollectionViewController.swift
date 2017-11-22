@@ -29,7 +29,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reusableCollectionCellIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reusableCollectionCellIdentifier)
 
     }
     
@@ -43,20 +43,20 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        let row = MemeData.allMemes.count
+        return row
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCollectionCellIdentifier, for: indexPath)
         
-        let cellImageView = cell.viewWithTag(0) as! UIImageView
+        let cellImageView = cell.viewWithTag(1) as! UIImageView
         
         cellImageView.image = MemeData.allMemes[indexPath.row].memedImage
         
