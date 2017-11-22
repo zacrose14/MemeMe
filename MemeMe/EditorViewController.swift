@@ -22,7 +22,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var navBar: UINavigationBar!
     
     // MARK: Variables
-    var info: UIImage!
+    var selectedImage: UIImage!
     var memedImage: UIImage!
     var placeholderTop = "TOP"
     var placeholderBottom = "BOTTOM"
@@ -41,7 +41,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         topTextField.text = placeholderTop
         bottomTextField.text = placeholderBottom
         
-        if let anImage = info {
+        if let anImage = selectedImage {
             imagePickerView.image = anImage
         }
     }

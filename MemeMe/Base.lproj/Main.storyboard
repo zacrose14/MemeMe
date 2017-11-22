@@ -34,7 +34,7 @@
         <scene sceneID="eoX-Be-7Xj">
             <objects>
                 <navigationController id="RKO-rW-j7U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="SKQ-LP-bIL"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection" id="SKQ-LP-bIL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GkX-8H-M8J">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -69,7 +69,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="145" height="97"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BvK-73-eig">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BvK-73-eig">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="BvK-73-eig" secondAttribute="height" multiplier="16:9" id="H3S-M6-tiL"/>
@@ -148,7 +148,7 @@
         <scene sceneID="gb9-Cy-Q0G">
             <objects>
                 <navigationController id="LST-fI-CuW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="mc6-gO-ZMI"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="table" id="mc6-gO-ZMI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="85E-g6-3UG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -177,7 +177,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2i-Vf-hvA">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2i-Vf-hvA">
                                             <rect key="frame" x="0.0" y="3" width="160.5" height="90.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="l2i-Vf-hvA" secondAttribute="height" multiplier="16:9" id="J70-w8-VDw"/>
@@ -332,8 +332,12 @@
             <point key="canvasLocation" x="1242" y="-501"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="30" height="30"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VCz-0F-ggs"/>
-        <segue reference="tEu-0U-BsR"/>
+        <segue reference="QDH-a7-rSM"/>
     </inferredMetricsTieBreakers>
 </document>
